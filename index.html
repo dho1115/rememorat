@@ -10,14 +10,21 @@
 <body>
     <div class="container">
         <h1>Time remaining: <span></span></h1>
-        <div class="col-lg-9 questionairre">            
-            <h1 id="I"></h1>
+        <!--Information Box and score-->
+        <div class="row">
+            <div class="col-lg-9 questionairre">            
+                <h1 id="I"></h1>
+            </div>
+            <div class="col-lg-3 score">
+                <h3>SCORE: <span></span></h3>
+            </div>
         </div>
-
+       
+        <!--Question, Input Box and Button which, when "clicked", displays the result.-->
         <div class="col-lg-9" style="margin: auto">
             <h1 id="question"></h1>
             <p></p>
-            <input type="number" name="number" class="input"/>
+            <input type="number" name="number" class="input" />
 
             <button class="input questionairre" onClick="displayResult()">Submit</button>
 

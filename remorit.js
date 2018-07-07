@@ -8,9 +8,12 @@ let questionairre = document.querySelector(".questionairre");
 let thequestion = document.querySelector("#question");
 //The "I"mage that is inside the ".questionairre" div.
 let I = document.querySelector("#I");
-//The input box where the user inputs the answer.
+//The input box (along with "user guess values and class") where the user inputs the answer.
 let input = document.querySelector("input");
+let InputClass = document.querySelector(".input");
 let guess = input.value;
+//button
+let button = document.querySelector("button");
 //This is where your result (whether you're right or wrong) is shown.
 let h5 = document.querySelector("h5");
 //The counter for the timer.
@@ -36,12 +39,20 @@ function displayResult() {
 
 //This initializes the "questionairre" div to visibility: hidden.
 questionairre.classList.add("TimeIsUp");
+InputClass.classList.add("TimeIsUp");
+button.classList.add("TimeIsUp");
 
-let timer = setInterval(function() {       
+function RevealNumberQuestion() {
+    questionairre.classList.add("TimeIsUp");
+    InputClass.classList.remove("TimeIsUp");
+    button.classList.remove("TimeIsUp");
+}
+
+let timer = setInterval(function NumberGuessingGame() {       
     if(count == 8) {        
         clearInterval(1);
         span.textContent = "TIME IS UP!!!";
-        questionairre.classList.add("TimeIsUp");
+        RevealNumberQuestion();
         thequestion.textContent = numberQuestion.Question;
 
     } else {
