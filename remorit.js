@@ -11,6 +11,8 @@ let I = document.querySelector("#I");
 //The input box where the user inputs the answer.
 let input = document.querySelector("input");
 let guess = input.value;
+//This is where your result (whether you're right or wrong) is shown.
+let h5 = document.querySelector("h5");
 //The counter for the timer.
 let count = 0;
 let randNum = Math.floor(Math.random() * 35791457915);
@@ -18,9 +20,11 @@ let randNum = Math.floor(Math.random() * 35791457915);
 let numberQuestion = {
     Image: randNum,
     Question: "What was the number on the screen?",
-    YourGuess: input.value,
-    Result: function() {
-        return this.Image == this.YourGuess ? "Correct!" : "Wrong"
+    UserGuess = guess,
+    Result = function() {
+        h5.textContent = (this.UserGuess == this.Image) ? 
+        "Correct!" : "Wrong! The number was " + randNum;
+        return h5.textContent;
     }
 } 
 
@@ -31,9 +35,9 @@ let timer = setInterval(function() {
     if(count == 8) {        
         clearInterval(1);
         span.textContent = "TIME IS UP!!!";
+        questionairre.classList.add("TimeIsUp");
         thequestion.textContent = numberQuestion.Question;
 
-        questionairre.classList.add("TimeIsUp");
     } else {
         questionairre.classList.remove("TimeIsUp");
         count +=1;
