@@ -9,7 +9,8 @@ let thequestion = document.querySelector("#question");
 //The "I"mage that is inside the ".questionairre" div.
 let I = document.querySelector("#I");
 //The input box where the user inputs the answer.
-let input = document.querySelector(".input");
+let input = document.querySelector("input");
+let guess = input.value;
 //The counter for the timer.
 let count = 0;
 let randNum = Math.floor(Math.random() * 35791457915);
@@ -35,7 +36,8 @@ let timer = setInterval(function() {
 let numberQuestion = {
     Image: randNum,
     Question: "What was the number on the screen?"
-}
+} 
+
 
 
 
