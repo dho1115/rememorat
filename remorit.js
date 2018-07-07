@@ -15,6 +15,16 @@ let guess = input.value;
 let count = 0;
 let randNum = Math.floor(Math.random() * 35791457915);
 
+let numberQuestion = {
+    Image: randNum,
+    Question: "What was the number on the screen?",
+    YourGuess: input.value,
+    Result: function() {
+        return this.Image == this.YourGuess ? "Correct!" : "Wrong"
+    }
+} 
+
+//This initializes the "questionairre" div to visibility: hidden.
 questionairre.classList.add("TimeIsUp");
 
 let timer = setInterval(function() {       
@@ -22,6 +32,7 @@ let timer = setInterval(function() {
         clearInterval(1);
         span.textContent = "TIME IS UP!!!";
         thequestion.textContent = numberQuestion.Question;
+
         questionairre.classList.add("TimeIsUp");
     } else {
         questionairre.classList.remove("TimeIsUp");
@@ -33,10 +44,7 @@ let timer = setInterval(function() {
 
 //Have an object. set key value pairs with one key/value being the picture on the screen and the second one being the question AFTER the picture has left. 
 
-let numberQuestion = {
-    Image: randNum,
-    Question: "What was the number on the screen?"
-} 
+
 
 
 
