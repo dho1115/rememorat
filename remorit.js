@@ -15,17 +15,23 @@ let guess = input.value;
 let h5 = document.querySelector("h5");
 //The counter for the timer.
 let count = 0;
-let randNum = Math.floor(Math.random() * 35791457915);
+let randNum = Math.floor(Math.random() * 35791579153);
 
 let numberQuestion = {
     Image: randNum,
     Question: "What was the number on the screen?",
-    UserGuess = guess,
-    Result = function() {
-        h5.textContent = (this.UserGuess == this.Image) ? 
-        "Correct!" : "Wrong! The number was " + randNum;
-        return h5.textContent;
-    }
+} 
+
+//This function will determine whether the USER response is == CORRECT "randNum".
+function IsAnswerCorrect() {
+    return Number(input.value) == randNum ? "Correct!" : "Wrong! The answer is " + randNum;
+} 
+
+//Finally, the function below will display the result in the <h5> tag below.
+function displayResult() {
+    IsAnswerCorrect();
+    h5.textContent = IsAnswerCorrect();
+    return h5.textContent;
 } 
 
 //This initializes the "questionairre" div to visibility: hidden.
