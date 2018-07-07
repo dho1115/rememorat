@@ -4,16 +4,23 @@ body {
     margin-top: 3%;
 }
 
-.questionairre {
-    border: 1px solid black;
-    background-color: lightgray;
-    margin: auto;
-    margin-top: 5%;
-}
-
 div > h1 {
     padding-top: 3%;
     text-align: center;
+} 
+
+.input {
+    display: block;
+} 
+
+.input, .questionairre {
+    margin: auto;
+} 
+
+.questionairre {
+    border: 1px solid black;
+    background-color: lightgray;
+    margin-top: 5%;
 } 
 
 .TimeIsUp {
