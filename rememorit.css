@@ -14,4 +14,8 @@ body {
 div > h1 {
     padding-top: 3%;
     text-align: center;
+} 
+
+.TimeIsUp {
+    visibility: hidden;
 }
