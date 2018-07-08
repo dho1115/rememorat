@@ -18,6 +18,10 @@ let button = document.querySelector("button");
 let h5 = document.querySelector("h5");
 //The counter for the timer.
 let count = 0;
+//The next two variables will calculate and display your recallrank score.
+let recallranking = 0;
+let recallrank = document.querySelector("#recallrank");
+
 let randNum = Math.floor(Math.random() * 35791579153);
 
 let numberQuestion = {
@@ -27,12 +31,15 @@ let numberQuestion = {
 
 //This function will determine whether the USER response is == CORRECT "randNum".
 function IsAnswerCorrect() {
-    return Number(input.value) == randNum ? "Correct!" : "Wrong! The answer is " + randNum;
+    if(Number(input.value) == randNum) {
+        recallranking += 5;
+        recallrank.textContent = recallranking;
+    }
+    return Number(input.value) == randNum ? "CORRECT!!!" : "Wrong! The answer is " + randNum;
 } 
 
-//Finally, the function below will display the result in the <h5> tag below.
+//Finally, the function below will display the result in the <h5> tag below. This is linked to the <button>Submit</button> on the html page.
 function displayResult() {
-    IsAnswerCorrect();
     h5.textContent = IsAnswerCorrect();
     return h5.textContent;
 } 
@@ -42,6 +49,7 @@ questionairre.classList.add("TimeIsUp");
 InputClass.classList.add("TimeIsUp");
 button.classList.add("TimeIsUp");
 
+//The function below will: (1) reveal the question. (2) reveal input class. (3) reveal button.
 function RevealNumberQuestion() {
     questionairre.classList.add("TimeIsUp");
     InputClass.classList.remove("TimeIsUp");
@@ -50,7 +58,7 @@ function RevealNumberQuestion() {
 
 let timer = setInterval(function NumberGuessingGame() {       
     if(count == 8) {        
-        clearInterval(1);
+        clearInterval(1); //stops the timer.
         span.textContent = "TIME IS UP!!!";
         RevealNumberQuestion();
         thequestion.textContent = numberQuestion.Question;
