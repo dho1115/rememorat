@@ -14,6 +14,8 @@ let InputClass = document.querySelector(".input");
 let guess = input.value;
 //button
 let button = document.querySelector("button");
+//Play again
+let playagain = document.querySelector(".playagain");
 //This is where your result (whether you're right or wrong) is shown.
 let h5 = document.querySelector("h5");
 //The counter for the timer.
