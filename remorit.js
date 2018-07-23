@@ -57,11 +57,13 @@ function RevealNumberQuestion() {
     InputClass.classList.remove("TimeIsUp");
     button.classList.remove("TimeIsUp");
 }
+let IntCount = 0;
 
 let timer = setInterval(function NumberGuessingGame() {       
     if(count == 8) {        
-        clearInterval(1); //stops the timer.
+        clearInterval(IntCount +=1); //stops the timer.
         span.textContent = "TIME IS UP!!!";
+        count = 0;
         RevealNumberQuestion();
         thequestion.textContent = numberQuestion.Question;
 
@@ -73,7 +75,39 @@ let timer = setInterval(function NumberGuessingGame() {
     }
 },1000)
 
-//Have an object. set key value pairs with one key/value being the picture on the screen and the second one being the question AFTER the picture has left. 
+//If the "Play again" button is pressed.
+
+function playgameagain() {
+
+    questionairre.classList.add("TimeIsUp");
+    InputClass.classList.add("TimeIsUp");
+    button.classList.add("TimeIsUp");
+    
+    questionairre.classList.remove("TimeIsUp");
+    randNum = Math.floor(Math.random() * 35791579153);
+
+    numberQuestion = {
+        Image: randNum,
+        Question: "What was the number on the screen?",
+    } 
+
+    setInterval(function NumberGuessingGame() {       
+        if(count == 8) {        
+            clearInterval(IntCount +=1); //stops the timer.
+            span.textContent = "TIME IS UP!!!";
+            count = 0;
+            RevealNumberQuestion();
+            thequestion.textContent = numberQuestion.Question;
+    
+        } else {
+            questionairre.classList.remove("TimeIsUp");
+            count +=1;
+            I.textContent = numberQuestion.Image;
+            span.textContent = 8-count;
+        }
+    },1000)    
+}
+
 
 
 
