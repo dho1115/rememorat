@@ -36,7 +36,8 @@ function IsAnswerCorrect() {
     if(Number(input.value) == randNum) {
         recallranking += 5;
         recallrank.textContent = recallranking;
-    }
+    } 
+
     return Number(input.value) == randNum ? "CORRECT!!!" : "Wrong! The answer is " + randNum;
 } 
 
@@ -79,10 +80,11 @@ let timer = setInterval(function NumberGuessingGame() {
 
 function playgameagain() {
 
+    input.value = "";
     questionairre.classList.add("TimeIsUp");
     InputClass.classList.add("TimeIsUp");
     button.classList.add("TimeIsUp");
-    
+
     questionairre.classList.remove("TimeIsUp");
     randNum = Math.floor(Math.random() * 35791579153);
 
